@@ -1,5 +1,6 @@
 import time
 import sys
+import os
 
 # pyserial
 import serial
@@ -17,6 +18,8 @@ SERIAL_SPEED = 9600
 SERIAL_PORT = "/dev/cu.E-nstrument-ESP32SPP"
 # Midi virtual port
 MIDI_PORT = "IAC Driver Bus 1"
+# BLUETOOTH ADDRESS
+BLE_ADDRESS = "24-6f-28-b1-3f-a6"
 
 # global var to safely exit the loop when program is ctr+c by user
 close_serial_connection = False
@@ -84,6 +87,9 @@ def serial_monitor():
 
     valid = check_if_valid_serial_port(SERIAL_PORT)
     if valid:
+        # Trying to pair to device
+        os.system(f"blueutil --connect {BLE_ADDRESS}")
+        time.sleep(2)
         # print details
         print(f"Trying to connect to serial port ... {SERIAL_PORT}")
 

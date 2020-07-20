@@ -1,2 +1,3 @@
 .vscode/
 __pycache__/
+esp32_midi_over_ble.egg-info/

@@ -92,10 +92,13 @@ Getting The Python Program Going
 --------------------------------
 
 1. Ensure you have python3.7 and poetry installed
-2. run ``poetry install`` this will install the dependencies of the
+2. Since these tutorials are for a mac, please install blueutil, by running `brew install blueutil`. 
+   This makes connecting and pairing to bluetooth simple over terminal, so you dont need to manually pair everytime you want to use the device. 
+3. run ``poetry install`` this will install the dependencies of the
    project
-3. Now go to bluetooth and pair with "E-nstrument" on your mac
-4. Once paired. Run ``poetry run python3 app.py`` . The most likely scenario is the
+4. Now go to bluetooth and pair with "E-nstrument" on your mac. Once paired run `blueutil --paired` and note down the 
+   address of the "E-nstrument". Open `app.py` and set your devices address.  
+5. Once paired. Run ``poetry run python3 app.py`` . The most likely scenario is the
    name of the serial port on my machine might not match yours. If this
    is the case you should see all your available serial ports printed
    out in std. Please set ``SERIAL_PORT`` variable to the corresponding
