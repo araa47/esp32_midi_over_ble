@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "esp32_midi_over_ble"
+version = "0.1.0"
+description = ""
+authors = ["Akshay Ramasubramanian <araa@connect.ust.hk>"]
+
+[tool.poetry.dependencies]
+python = "3.8.1"
+pyserial = "*"
+python-rtmidi = "*"
+mido = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^4.6"
+black = {version = "^19.10b0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+espmidi = "esp32_midi_over_ble"
