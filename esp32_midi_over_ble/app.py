@@ -1,13 +1,15 @@
 import time
 import sys
+
 # pyserial
 import serial
 import serial.tools.list_ports as list_ports
+
 # midi related
 import mido
-#pattern matching 
-import re
 
+# pattern matching
+import re
 
 
 # Serial port parameters
@@ -23,7 +25,6 @@ successfully_receiving_accelerometer_data = False
 
 # This new data format is used to simplify converting serial data to useful accelerometer data
 # accelerometer_data = [ax,ay,az,t,gx,gy,gz]
-accelerometer_data = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
 
 # Open the midi port
@@ -46,15 +47,17 @@ def check_if_valid_serial_port(port_name):
 
 # Function to parse serial data from bytes to accelerometer data and update the global variable
 def parse_serial(data):
-    global accelerometer_data
     # convert from bytes to a string
     # output looks like b'Ax: 0.00 Ay: 0.01 Az: 0.77 T: 28.77 Gx: -0.18 Gy: -1.38 Gz: -0.50\r\n'
-    strdata = str(data)
-    # now convert from a string of data to a list of floats 
-    data = re.findall(r"[-+]?[0-9]*\.?[0-9]+", strdata)
-    parse_accel_play_midi(accelerometer_data)
-    print(data)
-
+    data = str(data)
+    # now get only the numbers as str in a list, remove Ax, Ay ...
+    parsed = re.findall(r"[-+]?[0-9]*\.?[0-9]+", data)
+    print(parsed)
+    if len(parsed) == 7:
+        # convert to a list of float
+        accelerometer_data = [float(i) for i in parsed]
+        # play midi
+        parse_accel_play_midi(accelerometer_data)
 
 
 # Function to play midi note given accelerometer data
