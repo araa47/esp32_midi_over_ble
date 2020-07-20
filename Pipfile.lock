@@ -34,21 +34,21 @@
         },
         "python-rtmidi": {
             "hashes": [
-                "sha256:07ef73412820c08d0e5ed15927eb41f986efd5ccb23ad1065e7128d4275fe8b9",
-                "sha256:1791458d0dc4d3dd408b381d0b3613a09a99b1cf38fbe7b0fcb470616423a4b2",
-                "sha256:3b5913e6a3126788578566312064e73c90b8819673aee9a39dc985fed17099f7",
-                "sha256:3e97028ae8039fe7d9b802a42105c771268ea8b57533441e5ec46a8dc8229984",
-                "sha256:3fce8e85c4c09fd480fb976189c576377293ab120a32e330e7d5489e858dd427",
-                "sha256:3fd151b801128bdedcffa3be4899a68958a0ad5a102d100a3f2bce7e01d42ced",
-                "sha256:4ed5da58e4b57e84074f15e9c27bb3fc1b535258c502517f3c7e1042ed74ffe4",
-                "sha256:7cf3559bc9264d1ae3d85d636271df2a7beea0d6e2582a860513c8b272cfc46a",
-                "sha256:da22994bef4aec2fd5adb14be80a8cfc3710fd8964204bbf5f33e257ea79442d",
-                "sha256:e74fd4e7fc4c783f41724ecd2b0a17cbd7792795145a654421c46c3bdb292f02",
-                "sha256:e86fe9951340e10db66c21c5ae9e63d3249e70148e74cbeb37d16257e2f39f53",
-                "sha256:fe763f863471b24c24b8d103dd52e4a0d1e55339a2cfde5e06d635a909c08719"
+                "sha256:180fea4d35323e6dc2de397e15e213262aba1eb92f35d765ff9dda0978b764ec",
+                "sha256:2a3cc68f9d4ed4b258b229700567d4a1a337024b617a6ae52079fdd9c16af8a4",
+                "sha256:32fedd6dfc78023b5765221d1aa1f9fecc4c69e7c27fa06b091f4c4174219119",
+                "sha256:3721ed3643f407cd96ad377cff0c2e28f2e8df0abbbe15a8a9668daae0b2b743",
+                "sha256:75e59b7be66afaa94976d0395efb22a2977be9ff0fae6bdb1ed9ce0f42b69595",
+                "sha256:7bfa18894d154b038f7f1f873c05fa0cfc75614c6ba6171ae1d3a784e197fb16",
+                "sha256:c4bad65e004fcbd7059a8557cb918f74bb8268e9704beae01b2881114e801552",
+                "sha256:c6f96ce85032f4ea78ba91c641e6d910b5847c9a429b7ef4242478e2960079ff",
+                "sha256:e0a3a73ef42170ae074d0689c52af44a556d24feee7f264c93e589bc37737da7",
+                "sha256:e9bf63fd93a2fca54781a6f1a5dc5a5e7fc965d0cf7b4c794abea28b600fbc55",
+                "sha256:eb2b0ff69dcecaf73710073bded9e7cc39ab5f95105d59004f1e881ce3b6ae90",
+                "sha256:fda10b2847dffdcc440225ac8e6e5c9ce0e4834a1c5e63a760e5cac08598df3b"
             ],
             "index": "pypi",
-            "version": "==1.4.0"
+            "version": "==1.4.2"
         }
     },
     "develop": {}

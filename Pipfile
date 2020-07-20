@@ -7,8 +7,8 @@ verify_ssl = true
 
 [packages]
 pyserial = "*"
-mido = "*"
 python-rtmidi = "*"
+mido = "*"
 
 [requires]
 python_version = "3.7"
