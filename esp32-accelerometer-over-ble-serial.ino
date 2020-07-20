@@ -57,30 +57,20 @@ void loop()
   Gy = (double)GyroY / GyroScaleFactor;
   Gz = (double)GyroZ / GyroScaleFactor;
 
-  // Send values via serial ble
-  SerialBT.print(";");
+  SerialBT.print("Ax: ");
   SerialBT.print(Ax);
-  SerialBT.print(";");
+  SerialBT.print(" Ay: ");
   SerialBT.print(Ay);
-  SerialBT.print(";");
+  SerialBT.print(" Az: ");
   SerialBT.print(Az);
-  SerialBT.print(";");
+  SerialBT.print(" T: ");
   SerialBT.print(T);
-  SerialBT.print(";");
+  SerialBT.print(" Gx: ");
   SerialBT.print(Gx);
-  SerialBT.print(";");
+  SerialBT.print(" Gy: ");
   SerialBT.print(Gy);
-  SerialBT.print(";");
+  SerialBT.print(" Gz: ");
   SerialBT.println(Gz);
-
-  // This is used when using Serial Plotter arduino
-  //  SerialBT.print("Ax: "); SerialBT.print(Ax);
-  //  SerialBT.print(" Ay: "); SerialBT.print(Ay);
-  //  SerialBT.print(" Az: "); SerialBT.print(Az);
-  //  SerialBT.print(" T: "); SerialBT.print(T);
-  //  SerialBT.print(" Gx: "); SerialBT.print(Gx);
-  //  SerialBT.print(" Gy: "); SerialBT.print(Gy);
-  //  SerialBT.print(" Gz: "); SerialBT.println(Gz);
   delay(10);
 }
 

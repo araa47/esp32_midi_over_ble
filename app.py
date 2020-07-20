@@ -1,12 +1,14 @@
 import time
 import sys
-
 # pyserial
 import serial
 import serial.tools.list_ports as list_ports
-
 # midi related
 import mido
+#pattern matching 
+import re
+
+
 
 # Serial port parameters
 SERIAL_SPEED = 9600
@@ -46,19 +48,13 @@ def check_if_valid_serial_port(port_name):
 def parse_serial(data):
     global accelerometer_data
     # convert from bytes to a string
+    # output looks like b'Ax: 0.00 Ay: 0.01 Az: 0.77 T: 28.77 Gx: -0.18 Gy: -1.38 Gz: -0.50\r\n'
     strdata = str(data)
-    try:
-        # removes last 6 chars (\\r\\n') and then splits wherever their is a ';'  followed by removing first element of the list after split which is 'b'
-        parsed_string_list = strdata[:-6].split(";")[1:]
-        if len(parsed_string_list) == 7:
-            # convert string list to float list
-            accelerometer_data = [float(i) for i in parsed_string_list]
-            # print this data
-            # print(accelerometer_data)
-            # Now play midi based on these values
-            parse_accel_play_midi(accelerometer_data)
-    except Exception as e:
-        print(f"Exception while parsing serial ble data {e}")
+    # now convert from a string of data to a list of floats 
+    data = re.findall(r"[-+]?[0-9]*\.?[0-9]+", strdata)
+    parse_accel_play_midi(accelerometer_data)
+    print(data)
+
 
 
 # Function to play midi note given accelerometer data
@@ -104,19 +100,20 @@ def serial_monitor():
             while not close_serial_connection:
                 try:
                     data = ser.readline()
-                    if data == [] or len(data) == 0:
-                        print(f"Received: {data}")
-                        print(
-                            "Ble serial not receiving data! Please try to reboot your e-instrument or try to re-connect to it!"
-                        )
-                        close_serial_connection = True
-                    else:
-                        if not (successfully_receiving_accelerometer_data):
-                            print("Receiving accelerometer data! You can start waving your e-instrument to produce midi notes!")
-                            successfully_receiving_accelerometer_data = True
+                    parse_serial(data)
+                    # if data == [] or len(data) == 0:
+                    #     print(f"Received: {data}")
+                    #     print(
+                    #         "Ble serial not receiving data! Please try to reboot your e-instrument or try to re-connect to it!"
+                    #     )
+                    #     close_serial_connection = True
+                    # else:
+                    #     if not (successfully_receiving_accelerometer_data):
+                    #         print("Receiving accelerometer data! You can start waving your e-instrument to produce midi notes!")
+                    #         successfully_receiving_accelerometer_data = True
 
-                        parse_serial(data)
-                    time.sleep(0.01)
+                    #     parse_serial(data)
+                    # time.sleep(0.01)
                 # If user ctr+c, close the serial port to avoid multiple open ports in the future during program shutdown
                 except KeyboardInterrupt:
                     ser.close()
