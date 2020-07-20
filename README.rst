@@ -118,6 +118,12 @@ Getting The Python Program Going
    instrument on your DAW being played. In the demo video I play the
    Digital Chords Arpeggiator on GarageBand.
 
+Notes
+-------------------
+
+While testing, if you run into the issue of not receiving messages. Simply close the python script. Press the 'EN' button on the esp32s. Then run the script again. 
+This should soft reset the software on the esp32 and things should be back to normal. 
+
 Future Improvements
 -------------------
 
